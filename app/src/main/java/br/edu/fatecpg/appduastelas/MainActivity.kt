@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -33,6 +34,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             val nome = edtNomeProduto.text.toString();
             val preco = edtValorProduto.text.toString().toDouble();
             prod = Produto(nome, preco);
+            val builder = AlertDialog.Builder(this);
+            builder.setTitle("Sucesso");
+            builder.setMessage("Cadastra ok!");
+            val alert = builder.create();
+            alert.show();
+            edtNomeProduto.text.clear();
+            edtValorProduto.text.clear();
         }
         // enviado os dados do produto para outra tela
         fabButton.setOnClickListener(){
